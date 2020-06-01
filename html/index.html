@@ -13,6 +13,7 @@
 	<script src="../js/imagesloaded.pkgd.min.js"></script>
 	<script src="../js/masonry.pkgd.min.js"></script>
 	<script src="../js/jquery.mb.YTPlayer.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js""></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -177,14 +178,23 @@
 	
 	<section class="contact-wrap wrapper-small">
 		<h2 class="title">SUBSCRIBE TO OUR NEWSLETTER<span class="red-dot">.</span></h2>
-		<form action="#" class="contact-form">
-			<input type="text" class="input red w200" name="name" placeholder="NAME*">
-			<input type="text" class="input red w200" name="email" placeholder="Email*">
+		<form action="#" class="contact-form" id="contactForm">
+			<input type="hidden" name="contact_number">
+			<input type="text" class="input red w150" name="name" placeholder="NAME*">
+			<input type="text" class="input orange red w200" name="email" placeholder="Email*">
+			<input type="text" class="input orange red w200" name="msg" placeholder="Message*">
 			<button class="button red w200  orange">Subscript</button>
 		</form>
-	</section>
+	</section><!-- contact-wrap -->
 
-
+	<section id="background" class="player about-wrap" data-property="{
+		videoURL:'https://youtube.com/embed/oXdzvMLiE7Q',mute: true,showControls: false,useOnMobile: true,quality: 'highres',containment: 'self',loop: true,autoPlay: true,stopMovieOnBlur: false,startAt: 0,opacity: 0.4	}">
+	<div class="wrapper-small">
+		<h2 class="title">WHAT ARE YOU WAITING FOR<span class="red-dot">?</span></h2>
+		<p class="desc">Enfold Gym leads the fitness industry when it comes to helping people reach their fitness goals. We have Crossfit courses, a full weight room, multiple cardio areas, personal trainings, group classes, and more!</p>
+	</div>
+	</section><!-- about-wrap -->
+	
 	</div>
 	<script src="../js/index.js"></script>
 </body>

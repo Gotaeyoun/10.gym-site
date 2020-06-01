@@ -27,8 +27,11 @@ $(".section").each(function(i){
 var datas;
 var mainNow = 0;
 var mainPrev, mainNext, mainLast;
-mainAjax();
 
+/************ Initalize *************/
+mainAjax();//슬라이드 시작
+emailjs.init('user_hmVtiMSBn0X4lJbSzXzs4'); //이메일 시작
+$('#background').YTPlayer(); //영상시작
 
 /************ 사용자함수 *************/
 function mainAjax() {
@@ -184,6 +187,24 @@ function onPagerClick() {
 }
 
 
+function onMasonry(){
+	$masonry.masonry({
+		itemSelector: '.class',
+		columnWidth: '.class-sizer',
+		percentPosition: true
+	});
+}
+
+
+
+function onContact(event){
+event.preventDefault();
+	// generate the contact number value
+	this.contact_number.value = Math.random() * 100000 | 0;
+	emailjs.sendForm('gmail', 'gym-temp', this);
+	alert("Subscribe 신청이 완료되었습니다.");
+	this.reset();
+}
 
 /************ 이벤트선언 *************/
 $(window).resize(onResize).trigger("resize");
@@ -198,10 +219,9 @@ $(".main-wrap > .bt-next").click(onMainNext);
 $("section").imagesLoaded(onResize);
 
 
-var $masonry = $(".classes").imagesLoaded(function(){
-	$masonry.masonry({
-		itemSelector: '.class',
-		columnWidth: '.class-sizer',
-		percentPosition: true
-	});
-});
+
+var $masonry = $(".classes").imagesLoaded(onMasonry);
+
+$('#contactForm').submit(onContact);
+
+
